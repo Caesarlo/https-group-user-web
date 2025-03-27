@@ -16,7 +16,8 @@ const handleSelect = (key: string, keyPath: string[]) => {
     <div class="nav-bar">
         <el-menu class="el-menu-demo" mode="horizontal" :ellipsis="false" router :collapse="isCollapse" :default-active="activeIndex">
             <el-menu-item index="/">
-                <div class="flex items-center justify-center gap-2">
+                <div class="flex items-center justify-center gap-4">
+                    <img class="logo" src="../assets/csu.png" alt="logo">
                     <span style="font-size: 20px; font-weight: bold;">Https-Group</span>
                 </div>
             </el-menu-item>
@@ -29,11 +30,11 @@ const handleSelect = (key: string, keyPath: string[]) => {
                 </div>
             </el-menu-item>
 
-            <el-menu-item class="menu-toggle" @click="isCollapse = !isCollapse">
+            <!-- <el-menu-item class="menu-toggle" @click="isCollapse = !isCollapse">
                 <el-icon>
                     <component :is="isCollapse ? 'Expand' : 'Fold'" />
                 </el-icon>
-            </el-menu-item>
+            </el-menu-item> -->
         </el-menu>
     </div>
 </template>
@@ -102,6 +103,25 @@ const handleSelect = (key: string, keyPath: string[]) => {
     display: none;
 }
 
+.el-menu-item {
+    display: flex;
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.logo {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    padding-right: 10px;
+}
+
 /* 响应式布局 */
 @media screen and (max-width: 768px) {
     :deep(.el-menu) {
@@ -133,6 +153,10 @@ const handleSelect = (key: string, keyPath: string[]) => {
     :deep(.el-menu--collapse .el-sub-menu__title) {
         padding: 0 20px;
     }
+
+    .logo {
+        height: 32px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -147,6 +171,10 @@ const handleSelect = (key: string, keyPath: string[]) => {
     .theme-icon {
         width: 16px;
         height: 16px;
+    }
+
+    .logo {
+        height: 28px;
     }
 }
 </style> 

@@ -25,30 +25,34 @@ const toHttpGroup = () => {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
     background-color: var(--el-bg-color);
     color: var(--el-text-color-primary);
     position: relative;
+    padding-top: 10%;
 }
 
 .welcome-title {
     font-size: 80px;
     font-weight: bold;
     text-align: center;
-    padding: 120px 20px;
+    padding: 20px;
+    margin-bottom: 80px;
 }
 
 .main-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
     padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .main-content .el-button {
-    margin: 0 10px;
+    margin: 0;
 }
 
 .el-button {
