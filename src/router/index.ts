@@ -17,6 +17,11 @@ const routes = [
     name: 'orders',
     component: () => import('../views/orders.vue'),
   },
+  {
+    path: '/ptable',
+    name: 'Ptable',
+    component: () => import('@/components/Ptable.vue'),
+  },
 ]
 
 const router = createRouter({

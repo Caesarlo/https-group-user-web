@@ -1,8 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import { toggleDark, isDark } from '../composables'
-import lightIconSvg from '../assets/light.svg'
-import darkIconSvg from '../assets/dark.svg'
 import { Expand, Fold } from '@element-plus/icons-vue'
 
 const activeIndex = ref('/')
@@ -14,7 +11,8 @@ const handleSelect = (key: string, keyPath: string[]) => {
 
 <template>
     <div class="nav-bar">
-        <el-menu class="el-menu-demo" mode="horizontal" :ellipsis="false" router :collapse="isCollapse" :default-active="activeIndex">
+        <el-menu class="el-menu-demo" mode="horizontal" :ellipsis="false" router :collapse="isCollapse"
+            :default-active="activeIndex">
             <el-menu-item index="/">
                 <div class="flex items-center justify-center gap-4">
                     <img class="logo" src="../assets/csu.png" alt="logo">
@@ -23,18 +21,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
             </el-menu-item>
             <el-menu-item index="/workspace">Workspace</el-menu-item>
             <el-menu-item index="/orders">Orders</el-menu-item>
-
-            <el-menu-item class="theme-menu-item" @click="toggleDark()">
-                <div class="theme-button">
-                    <img :src="isDark ? lightIconSvg : darkIconSvg" class="theme-icon" alt="theme mode" />
-                </div>
-            </el-menu-item>
-
-            <!-- <el-menu-item class="menu-toggle" @click="isCollapse = !isCollapse">
-                <el-icon>
-                    <component :is="isCollapse ? 'Expand' : 'Fold'" />
-                </el-icon>
-            </el-menu-item> -->
+            <el-menu-item index="/ptable">Ptable</el-menu-item>
         </el-menu>
     </div>
 </template>
@@ -46,8 +33,28 @@ const handleSelect = (key: string, keyPath: string[]) => {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background-color: var(--el-bg-color);
-    border-bottom: 1px solid var(--el-border-color-light);
+    background-color: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+:deep(.el-menu) {
+    border-bottom: none !important;
+    background-color: transparent !important;
+}
+
+:deep(.el-menu-item) {
+    color: #ffffff !important;
+}
+
+:deep(.el-menu-item.is-active) {
+    border-bottom: none !important;
+    color: #ffffff !important;
+    font-weight: bold;
+}
+
+:deep(.el-menu-item:hover) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .el-menu-demo {
@@ -177,4 +184,4 @@ const handleSelect = (key: string, keyPath: string[]) => {
         height: 28px;
     }
 }
-</style> 
+</style>

@@ -21,34 +21,38 @@ const toHttpGroup = () => {
 <style scoped>
 .welcome-container {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    background-color: var(--el-bg-color);
-    color: var(--el-text-color-primary);
+    justify-content: center;
+    color: #ffffff;
     position: relative;
-    padding-top: 10%;
+    padding: 20px;
 }
 
 .welcome-title {
-    font-size: 80px;
+    font-size: clamp(32px, 8vw, 100px);
     font-weight: bold;
     text-align: center;
-    padding: 20px;
-    margin-bottom: 80px;
+    padding: clamp(10px, 2vw, 20px);
+    margin-bottom: clamp(20px, 5vw, 80px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 1200px;
+    line-height: 1.2;
 }
 
 .main-content {
     text-align: center;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 clamp(10px, 2vw, 20px);
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    gap: clamp(10px, 2vw, 20px);
+    flex-wrap: wrap;
 }
 
 .main-content .el-button {
@@ -56,24 +60,43 @@ const toHttpGroup = () => {
 }
 
 .el-button {
-    width: 180px;
-    height: 50px;
-    font-size: 18px;
+    width: clamp(140px, 30vw, 180px);
+    height: clamp(40px, 8vw, 50px);
+    font-size: clamp(14px, 3vw, 18px);
     font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.el-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* 响应式布局 */
 @media screen and (max-width: 768px) {
-    .welcome-title {
-        font-size: 40px;
-        padding: 30px 15px;
+    .welcome-container {
+        padding: 15px;
+    }
+
+    .main-content {
+        flex-direction: column;
+    }
+
+    .el-button {
+        width: 80%;
+        max-width: 200px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .welcome-title {
-        font-size: 32px;
-        padding: 20px 10px;
+    .welcome-container {
+        padding: 10px;
+    }
+
+    .el-button {
+        width: 90%;
     }
 }
 </style>

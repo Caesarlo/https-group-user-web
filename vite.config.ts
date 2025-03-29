@@ -13,19 +13,21 @@ export default defineConfig({
     vue(),
     vueDevTools(),
     AutoImport({
-      resolvers: [
-        ElementPlusResolver()
-      ]
+      resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [
-        ElementPlusResolver()
-      ]
-    })
+      resolvers: [ElementPlusResolver()],
+    }),
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
+  },
+  server: {
+    host: '0.0.0.0', // 允许外部访问
+    port: 5173, // 指定端口
+    strictPort: true, // 端口被占用时直接退出
+    open: true, // 自动打开浏览器
   },
 })

@@ -1,9 +1,11 @@
 <script setup lang="ts">
+import { RouterView } from 'vue-router'
 import Head from './views/head.vue'
 </script>
 
 <template>
   <div class="app-container">
+
     <Head />
     <div class="main-container">
       <router-view />
@@ -12,17 +14,13 @@ import Head from './views/head.vue'
 </template>
 
 <style>
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   height: 100vh;
   width: 100%;
-  background-color: var(--el-bg-color);
-}
-
-#app {
-  height: 100vh;
-  width: 100%;
+  overflow-x: hidden;
 }
 
 .app-container {
@@ -30,7 +28,6 @@ html, body {
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--el-bg-color);
   position: relative;
 }
 
@@ -39,6 +36,8 @@ html, body {
   width: 100%;
   height: calc(100vh - 60px);
   margin-top: 60px;
-  background-color: var(--el-bg-color);
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
 }
 </style>
